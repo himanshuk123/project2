@@ -1,0 +1,121 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+
+        <h3>ADD PATIENT</h3>
+
+    <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+        <div class="form-group">
+
+            <label>PATIENT ID: </label>
+
+            <input  type="number" #patientIdRef='ngModel' name="patient_id" ngModel class="form-control">
+
+            <div *ngIf='patientIdRef.errors && patientIdRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!patientIdRef.errors.required'> Provide Patient Id </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>PATIENT NAME: </label>
+
+            <input type="text" #patientNameRef='ngModel' name="patient_name" ngModel class="form-control">
+
+            <div *ngIf='patientNameRef.errors
+                        && patientNameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!patientNameRef.errors.required'>
+
+                    Provide Patient Name
+
+                </div>
+
+                <div *ngIf='patientNameRef.errors.pattern'></div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>PATIENT EMAIL: </label>
+
+            <input  type="email" #patientemailRef='ngModel' name="patient_email" ngModel class="form-control">
+
+            <div *ngIf='patientemailRef.errors && patientemailRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!patientemailRef.errors.required'> Provide Patient Email </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>PATIENT AGE: </label>
+
+            <input  type="number" #patientageRef='ngModel' name="patient_age" ngModel class="form-control">
+
+            <div *ngIf='patientageRef.errors && patientageRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!patientageRef.errors.required'> Provide Patient Age</div>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            <label>PATIENT CITY: </label>
+
+            <input type="text" #patientcityRef='ngModel' name="patient_city" ngModel class="form-control">
+
+            <div *ngIf='patientcityRef.errors && patientcityRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!patientcityRef.errors.required'> Provide Patient City </div>
+
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+
+            <label>PATIENT GENDER: </label>
+
+            <input type="gender" #patientgenderRef='ngModel' name="patient_gender" ngModel class="form-control">
+
+            <div *ngIf='patientgenderRef.errors && patientgenderRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!patientgenderRef.errors.required'> Provide Patient Gender </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>PHONE NUMBER: </label>
+
+            <input required length="10" type="number" #patientphoneRef='ngModel' name="patient_phonenumber" ngModel class="form-control">
+
+            <div *ngIf='patientphoneRef.errors && patientphoneRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!patientphoneRef.errors.required'> Provide Patient Phone Number </div>
+
+                <div *ngIf='patientphoneRef.errors.pattern'>Phone number should consists of 10 digits</div>
+
+            </div>
+        </div>
+    
+        <input [disabled]="userForm.invalid" type="submit" value="Add Doctor" class="btn btn-success">
+
+    </form>
+
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>

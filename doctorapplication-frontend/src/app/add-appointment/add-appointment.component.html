@@ -1,0 +1,95 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+
+        <h3>ADD APPOINTMENT</h3>
+
+    <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+         <div class="form-group">
+
+            <label>PATIENT NAME : </label>
+
+            <input  type="text" #appointmentpatientnameRef='ngModel' name="appointment_patientname" ngModel class="form-control">
+
+            <div *ngIf='appointmentpatientnameRef.errors && appointmentpatientnameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!appointmentpatientnameRef.errors.required'> Provide Patient name </div>
+
+            </div>
+
+         </div>
+
+        <div class="form-group">
+
+            <label>APPOINTMENT DETAILS (REASON) : </label>
+
+            <input type="text" #appointmentDetailsRef='ngModel' name="appointment_details" ngModel class="form-control">
+
+            <div *ngIf='appointmentDetailsRef.errors
+                        && appointmentDetailsRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!appointmentDetailsRef.errors.required'>
+
+                    Provide Appointment Details
+
+                </div>
+
+                <div *ngIf='appointmentDetailsRef.errors.pattern'></div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>APPOINTMENT DATE : </label>
+
+            <input type="date" #appointmentDateRef='ngModel' name="appointment_date" ngModel class="form-control">
+
+            <div *ngIf='appointmentDateRef.errors
+                        && appointmentDateRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!appointmentDateRef.errors.required'>
+
+                    Provide Appointment Date
+
+                </div>
+
+                <div *ngIf='appointmentDateRef.errors.pattern'></div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>APPOINTMENT TIME : </label>
+
+            <input type="time" #appointmentTimeRef='ngModel' name="appointment_time" ngModel class="form-control">
+
+            <div *ngIf='appointmentTimeRef.errors
+                        && appointmentTimeRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!appointmentTimeRef.errors.required'>
+
+                    Provide Appointment Time
+
+                </div>
+
+                <div *ngIf='appointmentTimeRef.errors.pattern'></div>
+
+            </div>
+
+        </div>
+
+        <input [disabled]="userForm.invalid" type="submit" value="submit" class="btn btn-success">
+
+    </form>
+
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>

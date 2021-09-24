@@ -1,0 +1,24 @@
+{
+  "doctors": [
+  {
+  "doctor_id": 1,
+  "doctor_name": "Tushar",
+  "doctor_email": "a@gmail.com",
+  "doctor_specialization": "Cardiology",
+  "doctor_gender": "Male",
+  "doctor_phonenumber": "9876543210",
+  "doctor_experience": 25,
+  "doctor_city": "Hyderabad"
+  },
+  {
+  "doctor_id": 2,
+  "doctor_name": "Himanshu",
+  "doctor_email": "b@gmail.com",
+  "doctor_specialization": "General",
+  "doctor_gender": "Male",
+  "doctor_phonenumber": "9087123466",
+  "doctor_experience": 24,
+  "doctor_city": "Bangalore"
+  }
+  ]
+}

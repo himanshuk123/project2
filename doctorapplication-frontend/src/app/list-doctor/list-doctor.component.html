@@ -1,0 +1,48 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+    <table class="table table-striped" *ngIf="doctors && doctors.length > 0  else elseBlock">
+        <thead>
+        <tr>
+            <th>DOCTOR ID</th>
+            <th>DOCTOR NAME</th>
+            <th>DOCTOR CITY</th>
+            <th>DOCTOR EMAIL</th>
+            <th>DOCTOR EXPERIENCE</th>
+            <th>DOCTOR GENDER</th>
+            <th>DOCTOR PHONENUMBER</th>
+            <th>DOCTOR SPECIALIZATION</th>
+            <th>DELETE DOCTOR</th>
+            <th>EDIT DOCTOR</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let d of doctors">
+                <td> {{d.doctor_id}} </td>
+                <td> {{d.doctor_name}} </td>
+                <td> {{d.doctor_city}} </td>
+                <td> {{d.doctor_email}} </td>
+                <td> {{d.doctor_experience}} </td>
+                <td> {{d.doctor_gender}} </td>
+                <td> {{d.doctor_phonenumber}} </td>
+                <td> {{d.doctor_specialization}} </td>
+                <td>
+                    <button type="button" class="btn btn-large btn-block btn-primary" (click)=delete(d)>Delete</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-large btn-block btn-primary" (click)=update(d)>Edit</button>
+                </td>
+                <td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> There are no doctors to display,please add the doctors! </h4>
+    </ng-template>
+
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>

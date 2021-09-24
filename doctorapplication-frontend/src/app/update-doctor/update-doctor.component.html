@@ -1,0 +1,135 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+
+        <h3>UPDATE DOCTOR</h3>
+
+    <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+        <div class="form-group">
+
+            <label>DOCTOR ID: </label>
+
+            <input required minlength="1" type="number" #doctorIdRef='ngModel' name="doctor_id" ngModel class="form-control">
+
+            <div *ngIf='doctorIdRef.errors && doctorIdRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!doctorIdRef.errors.required'> Provide Doctor Id </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>DOCTOR NAME: </label>
+
+            <input type="text" #doctorNameRef='ngModel' name="doctor_name" ngModel class="form-control">
+
+            <div *ngIf='doctorNameRef.errors
+                        && doctorNameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!doctorNameRef.errors.required'>
+
+                    Provide Doctor Name
+
+                </div>
+
+                <div *ngIf='doctorNameRef.errors.pattern'>Name should be minimum of 6 characters length</div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>DOCTOR CITY: </label>
+
+            <input  type="text" #doctorcityRef='ngModel' name="doctor_city" ngModel class="form-control">
+
+            <div *ngIf='doctorcityRef.errors && doctorcityRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!doctorcityRef.errors.required'> Provide Doctor City </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>DOCTOR EMAIL: </label>
+
+            <input type="email" #doctoremailRef='ngModel' name="doctor_email" ngModel class="form-control">
+
+            <div *ngIf='doctoremailRef.errors && doctoremailRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!doctoremailRef.errors.required'> Provide Doctor Email </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>DOCTOR EXPERIENCE: </label>
+
+            <input type="email" #doctorexperienceRef='ngModel' name="doctor_experience" ngModel class="form-control">
+
+            <div *ngIf='doctorexperienceRef.errors && doctorexperienceRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!doctorexperienceRef.errors.required'> Provide Doctor Experience </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>DOCTOR GENDER: </label>
+
+            <input type="gender" #doctorgenderRef='ngModel' name="doctor_gender" ngModel class="form-control">
+
+            <div *ngIf='doctorgenderRef.errors && doctorgenderRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!doctorgenderRef.errors.required'> Provide Doctor Gender </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>PHONE NUMBER: </label>
+
+            <input required length="10" type="number" #doctorphoneRef='ngModel' name="doctor_phonenumber" ngModel class="form-control">
+
+            <div *ngIf='doctorphoneRef.errors && doctorphoneRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!doctorphoneRef.errors.required'> Provide Doctor Phone Number </div>
+
+                <div *ngIf='doctorphoneRef.errors.pattern'>Phone number should consists of 10 digits</div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>DOCTOR SPECIALIZATION: </label>
+
+            <input type="text" #doctorspecializationRef='ngModel' name="doctor_specialization" ngModel class="form-control">
+
+            <div *ngIf='doctorspecializationRef.errors && doctorspecializationRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!doctorspecializationRef.errors.required'> Provide Doctor Specialization </div>
+
+            </div>
+        </div>
+
+    
+        <input [disabled]="userForm.invalid" type="submit" value="Update Doctor" class="btn btn-success">
+
+    </form>
+
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>
